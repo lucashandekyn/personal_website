@@ -1,5 +1,6 @@
 /* General Styles */
 :root {
+    /* Light mode (default) */
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
     --text-color: #1f2937;
@@ -8,6 +9,53 @@
     --light-background: #f3f4f6;
     --accent: #3b82f6;
     --border: #e5e7eb;
+    --card-bg: #ffffff;
+    --pcard-bg: #f3f4f6;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --footer-bg: #1f2937;
+    --footer-text: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --placeholder-bg: #e5e7eb;
+    --placeholder-text: #6b7280;
+}
+
+/* Dark mode based on system preferences */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #3b82f6;
+        --secondary-color: #60a5fa;
+        --text-color: #e5e7eb;
+        --light-text: #9ca3af;
+        --background: #111827;
+        --light-background: #1f2937;
+        --accent: #60a5fa;
+        --border: #374151;
+        --card-bg: #445264;
+        --pcard-bg: #162232;
+        --header-bg: rgba(17, 24, 39, 0.95);
+        --footer-bg: #0f172a;
+        --footer-text: #e5e7eb;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --placeholder-bg: #374151;
+        --placeholder-text: #9ca3af;
+    }
+
+    /* Invert project tags in dark mode for better contrast */
+    .project-tags span {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+    
+    .skill-item {
+        background-color: var(--card-bg);
+    }
+    
+    .edu-link {
+        color: var(--accent);
+    }
+    
+    .edu-link:hover {
+        color: var(--secondary-color);
+    }
 }
 
 * {
@@ -52,12 +100,12 @@ img {
 }
 
 .placeholder-image {
-    background-color: #e5e7eb;
+    background-color: var(--placeholder-bg);
     height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6b7280;
+    color: var(--placeholder-text);
     font-weight: 500;
     border-radius: 8px;
 }
@@ -67,8 +115,8 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px var(--shadow-color);
     z-index: 1000;
     padding: 20px 5%;
     display: flex;
@@ -284,12 +332,11 @@ header {
     gap: 20px;
 }
 
-
 .skill-item {
-    background-color: white;
+    background-color: var(--card-bg);
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px var(--shadow-color);
     text-align: center;
     font-weight: 500;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -297,7 +344,7 @@ header {
 
 .skill-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px var(--shadow-color);
 }
 
 /* Projects Section */
@@ -335,15 +382,16 @@ header {
 }
 
 .project-card {
+    background-color: var(--pcard-bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 25px var(--shadow-color);
 }
 
 .project-info {
@@ -491,8 +539,8 @@ header {
 
 /* Footer */
 footer {
-    background-color: #1f2937;
-    color: white;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     padding: 30px 5%;
     text-align: center;
 }

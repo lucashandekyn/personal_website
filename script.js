@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme detection and handling
+    function detectColorScheme() {
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Initial theme check
+        handleColorSchemeChange(darkModeMediaQuery);
+        
+        // Listen for changes
+        darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
+    }
+    
+    function handleColorSchemeChange(e) {
+        const isDarkMode = e.matches;
+        document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        
+        // Log the theme change
+        console.log(`Theme set to ${isDarkMode ? 'dark' : 'light'} mode based on system preferences`);
+    }
+    
+    // Initialize theme detection
+    detectColorScheme();
+
     // Mobile navigation toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
