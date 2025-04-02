@@ -373,6 +373,12 @@ header {
     font-size: 0.85rem;
 }
 
+.project-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .project-link {
     color: var(--primary-color);
     font-weight: 600;
